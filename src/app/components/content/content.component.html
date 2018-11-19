@@ -1,0 +1,7 @@
+<mat-card>
+  <form>
+    <div *ngFor="let item of numbers; let i = index">
+      <app-item [value]="item" [name]="name" (onChangeNumber)="changeValues($event, i)"></app-item>
+    </div>
+  </form>
+</mat-card>

@@ -1,0 +1,5 @@
+<app-header (changeName)="changeName($event)"></app-header>
+<br>
+<app-content [numbers]="numbers" (changeNumbers)="changeNumbers($event)" [name]="name" ></app-content>
+<br>
+<app-total [numbers]="numbers"></app-total>
