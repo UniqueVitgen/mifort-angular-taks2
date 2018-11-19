@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, 
+  OnInit,OnChanges,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy  
+} from '@angular/core';
 import { Item } from 'src/app/classes/item';
 
 @Component({
@@ -6,7 +14,15 @@ import { Item } from 'src/app/classes/item';
   templateUrl: './c1.component.html',
   styleUrls: ['./c1.component.scss']
 })
-export class C1Component implements OnInit {
+export class C1Component  implements
+OnChanges,
+OnInit,
+DoCheck,
+AfterContentInit,
+AfterContentChecked,
+AfterViewInit,
+AfterViewChecked,
+OnDestroy {
   name: string;
   numbers: number[] = [1,1,1];
   items: Item[] = [
@@ -19,6 +35,30 @@ export class C1Component implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    console.log('c1 ngOnInit');
+  }
+  ngOnChanges(changes: import("/home/vitgen/dev/projects/angular/mifort/mifort-angular-taks2/node_modules/@angular/core/src/metadata/lifecycle_hooks").SimpleChanges): void {
+    
+    console.log('c1 ngOnChanges');
+  }
+  ngDoCheck(): void {
+    console.log('c1 ngDoCheck');
+  }
+  ngAfterContentInit(): void {
+    console.log('c1 ngAfterContentInit');
+  }
+  ngAfterContentChecked(): void {
+    console.log('c1 ngAfterContentChecked');
+  }
+  ngAfterViewInit(): void {
+    console.log('c1 ngAfterViewInit');
+  }
+  ngAfterViewChecked(): void {
+    console.log('c1 ngAfterViewChecked');
+  }
+  ngOnDestroy(): void {
+    console.log('c1 ngOnDestroy');
   }
 
   changeName(name: string) {
