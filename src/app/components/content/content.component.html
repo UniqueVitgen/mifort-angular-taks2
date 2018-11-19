@@ -1,7 +1,8 @@
 <mat-card>
   <form>
-    <div *ngFor="let it of numbers; let i = index">
-      <app-item [name]="name" (onChangeNumber)="changeValues($event, i)"></app-item>
+    <div *ngFor="let skill of skills; let i = index">
+      <app-item [name]="name" [count]="numbers[i]" [skill]="skill" (onChangeNumber)="changeValues($event, i)"></app-item>
+      <br>
     </div>
   </form>
 </mat-card>

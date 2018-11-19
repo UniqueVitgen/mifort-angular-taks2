@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Item } from 'src/app/classes/item';
 
 @Component({
   selector: 'app-item',
@@ -6,22 +7,25 @@ import { Component, OnInit, Input, EventEmitter, Output, ViewChild } from '@angu
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-  @ViewChild('')
   @Input() name: string;
   @Input() index: number;
-  @Output() onChangeNumber: EventEmitter<Number> = new EventEmitter();
-  @Input('value') value: number;
+  @Input() skill: string;
+  @Output() onChangeNumber: EventEmitter<number> = new EventEmitter();
+  @Input() count: number;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  changeValue(valueNumber) {
-    
-    console.log(valueNumber);
-    const value = (<HTMLInputElement>valueNumber).value.trim();
-    this.onChangeNumber.emit(Number(value));
+  up() {
+    this.count++;
+    this.onChangeNumber.emit(this.count);
+  }
+
+  down() {
+    this.count--;
+    this.onChangeNumber.emit(this.count);
   }
 
 }

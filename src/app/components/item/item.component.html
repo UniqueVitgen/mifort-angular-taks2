@@ -1,3 +1,17 @@
 <!-- <mat-form-field> -->
-  <input #itemvalue only-numbers (input)="changeValue(itemvalue)">
+<mat-card>
+  <div>
+      <span class="title-text">name:</span> {{name? name: '-'}}
+  </div>
+  <div>
+      <span class="title-text">skill:</span> {{skill}} 
+  </div>
+  <div>
+      <span class="title-text">count:</span> {{count}}
+      &nbsp;
+      <button (click)="up()" mat-mini-fab color="primary">↑</button>
+      &nbsp;
+      <button (click)="down()" mat-mini-fab color="primary">↓</button>
+  </div>
+</mat-card>
 <!-- </mat-form-field> -->

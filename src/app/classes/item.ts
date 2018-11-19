@@ -1,4 +1,4 @@
 export class Item {
-    Name: string;
-    Skill: number;
+    count: number;
+    skill: string;
 }
