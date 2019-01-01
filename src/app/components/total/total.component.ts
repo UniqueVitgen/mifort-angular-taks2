@@ -1,11 +1,14 @@
-import { Component, 
-  OnInit,OnChanges,
+import {
+  Component,
+  OnInit, OnChanges,
   DoCheck,
   AfterContentInit,
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
-  OnDestroy, Input } from '@angular/core';
+  OnDestroy, Input, SimpleChanges
+} from '@angular/core';
+import {Item} from '../../classes/item';
 
 @Component({
   selector: 'app-total',
@@ -13,24 +16,24 @@ import { Component,
   styleUrls: ['./total.component.scss']
 })
 export class TotalComponent implements 
-OnInit,OnChanges,
+OnInit,
+  OnChanges,
 DoCheck,
 AfterContentInit,
 AfterContentChecked,
 AfterViewInit,
 AfterViewChecked,
 OnDestroy {
-  @Input() numbers: number[];
+  @Input() skillItems: Item[];
 
   constructor() { }
 
 
-  ngOnInit() {
+  ngOnInit(): void {
 
     console.log('total ngOnInit');
   }
-  ngOnChanges(changes: import("/home/vitgen/dev/projects/angular/mifort/mifort-angular-taks2/node_modules/@angular/core/src/metadata/lifecycle_hooks").SimpleChanges): void {
-    
+  ngOnChanges(changes: SimpleChanges): void {
     console.log('total ngOnChanges');
   }
   ngDoCheck(): void {
@@ -52,12 +55,12 @@ OnDestroy {
     console.log('total ngOnDestroy');
   }
 
-  calculateSum(numbers: number[]) {
-    let sum = 0;
-    for(let value of numbers) {
-      sum += value;
-    }
-    return sum;
+  calculateSum(skillItems: Item[]): number {
+    return skillItems
+      .map((item: Item) => item.count)
+      .reduce((sum: number, value: number) => {
+      return sum + value;
+    });
   }
 
 }

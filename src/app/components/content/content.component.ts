@@ -1,11 +1,13 @@
-import { Component, Input, Output, EventEmitter, 
-  OnInit,OnChanges,
+import {
+  Component, Input, Output, EventEmitter,
+  OnInit, OnChanges,
   DoCheck,
   AfterContentInit,
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
-  OnDestroy   } from '@angular/core';
+  OnDestroy, SimpleChanges
+} from '@angular/core';
 import { Item } from 'src/app/classes/item';
 
 @Component({
@@ -14,30 +16,32 @@ import { Item } from 'src/app/classes/item';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements 
-OnInit,OnChanges,
+OnInit,
+  OnChanges,
 DoCheck,
 AfterContentInit,
 AfterContentChecked,
 AfterViewInit,
 AfterViewChecked,
 OnDestroy   {
-  Arr = Array; //Array type captured in a variable
-  count:number = 3;
+  Arr = Array;
+  count: number = 3;
   @Input() name: string;
-  @Input() skills: string[];
-  @Input() numbers: number[];
-  @Output() changeNumbers: EventEmitter<Number[]> = new EventEmitter();
+  // @Input() skills: string[];
+  // @Input() numbers: number[];
+  @Input() skillItems: Item[];
+  @Output() changeSkillItems: EventEmitter<Item[]> = new EventEmitter();
+  // @Output() changeNumbers: EventEmitter<Number[]> = new EventEmitter();
 
-  constructor() { 
+  constructor() {
   }
 
 
-  ngOnInit() {
+  ngOnInit(): void {
 
     console.log('content ngOnInit');
   }
-  ngOnChanges(changes: import("/home/vitgen/dev/projects/angular/mifort/mifort-angular-taks2/node_modules/@angular/core/src/metadata/lifecycle_hooks").SimpleChanges): void {
-    
+  ngOnChanges(changes: SimpleChanges): void {
     console.log('content ngOnChanges');
   }
   ngDoCheck(): void {
@@ -59,9 +63,10 @@ OnDestroy   {
     console.log('content ngOnDestroy');
   }
 
-  changeValues(value: number, index: number) {
-    this.numbers[index] = value;
-    this.changeNumbers.emit(this.numbers);
+  changeValues(value: number, index: number): void {
+    this.skillItems[index].count = value;
+    this.changeSkillItems.emit(this.skillItems);
+    // this.changeNumbers.emit(this.numbers);
   }
 
 }

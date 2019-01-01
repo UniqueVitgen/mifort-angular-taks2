@@ -6,7 +6,7 @@ import {
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
-  OnDestroy
+  OnDestroy, SimpleChanges
 } from '@angular/core';
 import { Item } from 'src/app/classes/item';
 
@@ -34,11 +34,11 @@ export class ItemComponent implements
 
 
 
-  ngOnInit() {
+  ngOnInit(): void {
 
     console.log('item ' + this.skill + ' ngOnInit');
   }
-  ngOnChanges(changes: import("/home/vitgen/dev/projects/angular/mifort/mifort-angular-taks2/node_modules/@angular/core/src/metadata/lifecycle_hooks").SimpleChanges): void {
+  ngOnChanges(changes: SimpleChanges): void {
 
     console.log('item ' + this.skill + ' ngOnChanges');
   }
@@ -61,12 +61,12 @@ export class ItemComponent implements
     console.log('item ' + this.skill + ' ngOnDestroy');
   }
 
-  up() {
+  up(): void {
     this.count++;
     this.onChangeNumber.emit(this.count);
   }
 
-  down() {
+  down(): void {
     this.count--;
     this.onChangeNumber.emit(this.count);
   }

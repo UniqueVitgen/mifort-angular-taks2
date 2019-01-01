@@ -1,19 +1,22 @@
-import { Component,  EventEmitter, Output,
-  OnInit,OnChanges,
+import {
+  Component, EventEmitter, Output,
+  OnInit, OnChanges,
   DoCheck,
   AfterContentInit,
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
-  OnDestroy  } from '@angular/core';
+  OnDestroy, SimpleChanges
+} from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements 
-OnInit,OnChanges,
+export class HeaderComponent implements
+OnInit,
+  OnChanges,
 DoCheck,
 AfterContentInit,
 AfterContentChecked,
@@ -26,12 +29,11 @@ OnDestroy {
   constructor() { }
 
 
-  ngOnInit() {
+  ngOnInit(): void {
 
     console.log('header ngOnInit');
   }
-  ngOnChanges(changes: import("/home/vitgen/dev/projects/angular/mifort/mifort-angular-taks2/node_modules/@angular/core/src/metadata/lifecycle_hooks").SimpleChanges): void {
-    
+  ngOnChanges(changes: SimpleChanges): void {
     console.log('header ngOnChanges');
   }
   ngDoCheck(): void {
@@ -53,7 +55,7 @@ OnDestroy {
     console.log('header ngOnDestroy');
   }
 
-  changeValue(name: KeyboardEvent) {
+  changeValue(name: KeyboardEvent): void {
     this.changeName.emit((name.target as any).value);
   }
 
