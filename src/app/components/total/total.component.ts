@@ -8,7 +8,7 @@ import {
   AfterViewChecked,
   OnDestroy, Input, SimpleChanges
 } from '@angular/core';
-import {Item} from '../../classes/item';
+import {SkillItem} from '../../classes/skill-item';
 
 @Component({
   selector: 'app-total',
@@ -24,7 +24,7 @@ AfterContentChecked,
 AfterViewInit,
 AfterViewChecked,
 OnDestroy {
-  @Input() skillItems: Item[];
+  @Input() skillItems: SkillItem[];
 
   constructor() { }
 
@@ -55,9 +55,9 @@ OnDestroy {
     console.log('total ngOnDestroy');
   }
 
-  calculateSum(skillItems: Item[]): number {
+  calculateSum(skillItems: SkillItem[]): number {
     return skillItems
-      .map((item: Item) => item.count)
+      .map((item: SkillItem) => item.count)
       .reduce((sum: number, value: number) => {
       return sum + value;
     });

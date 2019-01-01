@@ -9,7 +9,7 @@ import {
   OnDestroy,
   OnInit, SimpleChanges
 } from '@angular/core';
-import {Item} from '../../classes/item';
+import {SkillItem} from '../../classes/skill-item';
 
 @Component({
   selector: 'app-container',
@@ -26,7 +26,7 @@ export class ContainerComponent implements
   AfterViewChecked,
   OnDestroy {
   name: string;
-  items: Item[] = [
+  items: SkillItem[] = [
     {count: 0, skill: 'strength'},
     {count: 0, skill: 'power'},
     {count: 0, skill: 'speed'},
@@ -66,7 +66,7 @@ export class ContainerComponent implements
     console.log(name);
     this.name = name;
   }
-  changeSkillItems(items: Item[]): void {
+  changeSkillItems(items: SkillItem[]): void {
     this.items = items;
   }
 

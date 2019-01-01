@@ -8,7 +8,7 @@ import {
   AfterViewChecked,
   OnDestroy, SimpleChanges
 } from '@angular/core';
-import { Item } from 'src/app/classes/item';
+import { SkillItem } from 'src/app/classes/skill-item';
 
 @Component({
   selector: 'app-item',

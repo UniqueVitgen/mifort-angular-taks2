@@ -8,7 +8,7 @@ import {
   AfterViewChecked,
   OnDestroy, SimpleChanges
 } from '@angular/core';
-import { Item } from 'src/app/classes/item';
+import { SkillItem } from 'src/app/classes/skill-item';
 
 @Component({
   selector: 'app-content',
@@ -29,8 +29,8 @@ OnDestroy   {
   @Input() name: string;
   // @Input() skills: string[];
   // @Input() numbers: number[];
-  @Input() skillItems: Item[];
-  @Output() changeSkillItems: EventEmitter<Item[]> = new EventEmitter();
+  @Input() skillItems: SkillItem[];
+  @Output() changeSkillItems: EventEmitter<SkillItem[]> = new EventEmitter();
   // @Output() changeNumbers: EventEmitter<Number[]> = new EventEmitter();
 
   constructor() {

@@ -1,4 +1,4 @@
-export class Item {
+export class SkillItem {
     count: number;
     skill: string;
 }
