@@ -12,8 +12,7 @@ import { SkillItem } from 'src/app/classes/skill-item';
 
 @Component({
   selector: 'app-item',
-  templateUrl: './item.component.html',
-  styleUrls: ['./item.component.scss']
+  templateUrl: './item.component.html'
 })
 export class ItemComponent implements
   OnInit, OnChanges,

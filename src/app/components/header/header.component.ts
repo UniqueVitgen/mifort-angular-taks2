@@ -11,8 +11,7 @@ import {
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  templateUrl: './header.component.html'
 })
 export class HeaderComponent implements
 OnInit,
@@ -23,7 +22,6 @@ AfterContentChecked,
 AfterViewInit,
 AfterViewChecked,
 OnDestroy {
-  private name: string;
   @Output() changeName: EventEmitter<String> = new EventEmitter();
 
   constructor() { }
@@ -55,8 +53,8 @@ OnDestroy {
     console.log('header ngOnDestroy');
   }
 
-  changeValue(name: KeyboardEvent): void {
-    this.changeName.emit((name.target as any).value);
+  changeValue(name: string): void {
+    this.changeName.emit(name);
   }
 
 }

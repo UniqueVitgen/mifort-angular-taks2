@@ -12,10 +12,9 @@ import {SkillItem} from '../../classes/skill-item';
 
 @Component({
   selector: 'app-total',
-  templateUrl: './total.component.html',
-  styleUrls: ['./total.component.scss']
+  templateUrl: './total.component.html'
 })
-export class TotalComponent implements 
+export class TotalComponent implements
 OnInit,
   OnChanges,
 DoCheck,

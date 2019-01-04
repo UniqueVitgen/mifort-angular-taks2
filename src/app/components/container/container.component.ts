@@ -13,8 +13,7 @@ import {SkillItem} from '../../classes/skill-item';
 
 @Component({
   selector: 'app-container',
-  templateUrl: './container.component.html',
-  styleUrls: ['./container.component.scss']
+  templateUrl: './container.component.html'
 })
 export class ContainerComponent implements
   OnChanges,

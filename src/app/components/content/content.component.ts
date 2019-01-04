@@ -12,10 +12,9 @@ import { SkillItem } from 'src/app/classes/skill-item';
 
 @Component({
   selector: 'app-content',
-  templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  templateUrl: './content.component.html'
 })
-export class ContentComponent implements 
+export class ContentComponent implements
 OnInit,
   OnChanges,
 DoCheck,
@@ -24,21 +23,16 @@ AfterContentChecked,
 AfterViewInit,
 AfterViewChecked,
 OnDestroy   {
-  Arr = Array;
   count: number = 3;
   @Input() name: string;
-  // @Input() skills: string[];
-  // @Input() numbers: number[];
   @Input() skillItems: SkillItem[];
   @Output() changeSkillItems: EventEmitter<SkillItem[]> = new EventEmitter();
-  // @Output() changeNumbers: EventEmitter<Number[]> = new EventEmitter();
 
   constructor() {
   }
 
 
   ngOnInit(): void {
-
     console.log('content ngOnInit');
   }
   ngOnChanges(changes: SimpleChanges): void {
@@ -64,7 +58,8 @@ OnDestroy   {
   }
 
   changeValues(value: number, index: number): void {
-    this.skillItems[index].count = value;
+    const skillItems: SkillItem[] = this.skillItems.slice();
+    skillItems[index].count = value;
     this.changeSkillItems.emit(this.skillItems);
     // this.changeNumbers.emit(this.numbers);
   }
